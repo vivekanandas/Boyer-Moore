@@ -156,7 +156,7 @@ class BM {
 		String diff = "Character: ";
 		String ex = "Shift:     ";
 		String other = "All others: " + norm;
-		for (int i = 0; i < alphaSize; i++) {
+		for (int i = 0; i < patternSize; i++) {
 			if (!(bmHorspoolTable[i] == norm)) {
 				diff += (char) (i + 65) + " ";
 				ex += (bmHorspoolTable[i]) + " ";
@@ -168,7 +168,29 @@ class BM {
 	}
 
 	private void buildGoodTable() {
-		// TODO
+		int size = pattern.length() - 1;
+		//Start Loop Check through all Sufffixs
+		for(int i = 0; i < size; i++){
+		  int displacement = size;
+		  String current = pattern.charat(size-i; size);
+		  
+		  //Go Through Increasingly Smaller Suffixs If None Mathch
+		    //displacement is equal to size
+		  for(int j = 0; j < current.size(); j ++){
+		    
+		    //Check through all the pattern
+		    for(int n = size; n >= 0; n --){
+		      //If the current pattern is equal to a string starting at the beging of the pattern
+		      if(pattern.substring(0,n).equals(current)){
+		        int nDis = (size - n) - i;
+		      }
+		    }
+		    current = current.subString(1,current.length()-1);
+		  }
+		  bmGoodTable[i] = displacement;
+		}
+		
+		
 
 	}
 
