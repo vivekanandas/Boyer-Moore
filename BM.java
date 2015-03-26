@@ -137,12 +137,25 @@ class BM {
 	}
 
 	private void printHorspoolTable() {
-		// TODO Auto-generated method stub
+	  int norm = pattern.length;
 		
+		String diff = "Character: ";
+		String ex = "Shift:   ";
+		String other = "All others: " + norm;
+		for(int i = 0; i < alphaSize; i ++){
+		  if(!(bmHorspoolTable[i] = norm)){
+		    diff += (char)(i + 65) + " ";
+		    ex += (char)(bmHorspoolTable[i]) + " ";
+		  }
+		}
+		System.out.println(diff);
+		System.out.println(ex);
+		System.out.println(other);
 	}
 
 	private void buildGoodTable() {
-		// TODO Auto-generated method stub
+		//TODO
+		
 		
 	}
 
