@@ -29,6 +29,7 @@ class BM {
 	private int[] bmHorspoolTable;
 	private int occurrences;
 	private int comparisons;
+	private int alignments;
 
 	private String pattern;
 	private String text;
@@ -121,8 +122,12 @@ class BM {
 	}
 
 	private void printResult() {
-		// TODO Auto-generated method stub
-
+		System.out.println();
+		System.out.println("Found " + occurrences + " occurences of");
+		System.out.println("Pattern " + pattern);
+		System.out.println("in");
+		System.out.println("text: " + text);
+		System.out.println("after " + alignments + " and " + comparisons + " comparisons");
 	}
 
 	private void match() {
@@ -134,9 +139,9 @@ class BM {
 		  String k = "K:  ";
 		String shift = "shift:  ";
 		
-		for(int i = 0; i < pattern.size; i++){
-		  k += (char)(i) + " ";
-		  shift += (char)(bmHorspoolTable[i]) + " ";  
+		for(int i = 0; i < pattern.length(); i++){
+		  k += (i+1) + " ";
+		  shift += (bmHorspoolTable[i]+65) + " ";  
 		}
 		
 		System.out.println(k);
@@ -149,12 +154,12 @@ class BM {
 		int norm = pattern.length();
 
 		String diff = "Character: ";
-		String ex = "Shift:   ";
+		String ex = "Shift:     ";
 		String other = "All others: " + norm;
 		for (int i = 0; i < alphaSize; i++) {
 			if (!(bmHorspoolTable[i] == norm)) {
 				diff += (char) (i + 65) + " ";
-				ex += (char) (bmHorspoolTable[i]) + " ";
+				ex += (bmHorspoolTable[i]) + " ";
 			}
 		}
 		System.out.println(diff);
@@ -174,13 +179,14 @@ class BM {
 		for (int i = 0; i < bmHorspoolTable.length; i++) {
 			bmHorspoolTable[i] = pattern.length();
 		}
-
+		int norm = pattern.length();
 		int counter = -1;
 		for (int i = pattern.length(); i > 0; i--) {
 			counter++;
-
-			int loc = pattern.charAt(i-1)-97;
-			bmHorspoolTable[loc] = counter;
+			
+			int loc = pattern.charAt(i-1)-65;
+			if(bmHorspoolTable[loc] == norm)
+			bmHorspoolTable[loc] = counter + 1;
 		}
 	}
 
