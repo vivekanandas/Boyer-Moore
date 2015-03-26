@@ -131,7 +131,17 @@ class BM {
 	}
 
 	private void printGoodTable() {
-		// TODO Auto-generated method stub
+		  String k = "K:  ";
+		String shift = "shift:  ";
+		
+		for(int i = 0; i < pattern.size; i++){
+		  k += (char)(i) + " ";
+		  shift += (char)(bmHorspoolTable[i]) + " ";  
+		}
+		
+		System.out.println(k);
+		System.out.println(shift);
+
 
 	}
 
