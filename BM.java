@@ -19,7 +19,7 @@
  *				32	
  *				64	
  * 
- * @author 
+ * @author Tom Lazar
  *
  */
 import java.util.Random;
@@ -147,8 +147,21 @@ class BM {
 	}
 
 	private void buildHorspoolTable() {
+	  
 		// TODO Auto-generated method stub
+		//Initilize the array with basic input might be unnessicary
+		for(int i = 0; i < bmHorspoolTable.length; i ++){
+		  bmHorspoolTable[i] = pattern.size();
+		}
 		
+		
+		int counter = -1;
+	  for(int i = pattern.length; i > 0; i --){
+	    counter++;
+	    
+	    int loc = pattern.charAt(i) - 65;
+	    bmHorspoolTable[loc] = counter;
+	  }
 	}
 	
 }
