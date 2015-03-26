@@ -128,6 +128,7 @@ class BM {
 		System.out.println("in");
 		System.out.println("text: " + text);
 		System.out.println("after " + alignments + " and " + comparisons + " comparisons");
+		System.out.println("Aaron is cooler than tommy")
 	}
 
 	private void match() {
@@ -168,6 +169,7 @@ class BM {
 	}
 
 	private void buildGoodTable() {
+	  long aaronsawesomeness = 0;
 		int size = pattern.length() - 1;
 		//Start Loop Check through all Sufffixs
 		for(int i = 0; i < size; i++){
@@ -179,10 +181,15 @@ class BM {
 		  for(int j = 0; j < current.size(); j ++){
 		    
 		    //Check through all the pattern
+		    aaronsawesomeness = size - j;
 		    for(int n = size; n >= 0; n --){
 		      //If the current pattern is equal to a string starting at the beging of the pattern
+		      aaronsawesomeness--;
 		      if(pattern.substring(0,n).equals(current)){
-		        int nDis = (size - n) - i;
+		        int nDis = aaronsawesomeness;
+		        if(nDis > displacement){
+		          displacement = nDis;
+		        }
 		      }
 		    }
 		    current = current.subString(1,current.length()-1);
@@ -211,5 +218,7 @@ class BM {
 			bmHorspoolTable[loc] = counter + 1;
 		}
 	}
+	
+	System.out.println("Tommy is a dick")
 
 }
