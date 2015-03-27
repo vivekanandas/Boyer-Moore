@@ -128,11 +128,37 @@ class BM {
 		System.out.println("in");
 		System.out.println("text: " + text);
 		System.out.println("after " + alignments + " and " + comparisons + " comparisons");
-		System.out.println("Aaron is cooler than tommy")
 	}
 
 	private void match() {
-		// TODO Auto-generated method stub
+	  int concurrent = 0;
+		for(int i = pattern.size; i < text.length; i = i){
+		  
+		  alignments;
+		  
+		  char c1 = pattern.charAt(i);
+		  char c2 = text.charAt(i);
+		  
+		  if(c1 == c2){
+		    concurrent ++;
+		    comparisons++;
+		    i ++
+		  }
+		  else if(concurrnet > 1){
+		    concurrnet = 0;
+		    i += bmGoodTable[];
+		  }
+		  else if (){
+		    concurrent = 0;
+		    i += bmHorspoolTable[c2];
+		  }
+		  
+		  if(concurrences = pattern.length()-1){
+		    concurrent = 0;
+		    i ++;
+		    occurences ++;
+		  }
+		}
 
 	}
 
